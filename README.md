@@ -77,6 +77,16 @@ To construct the high-fidelity 3D map for navigation, I implemented a hybrid SLA
 
 ---
 
+### Navigation Stack (Nav2) & TF Architecture
+
+To achieve true autonomy, the 3D point cloud data is projected into a 2D occupancy grid (`.pgm` / `.yaml`) to feed the **ROS 2 Nav2 Stack**. Custom configuration files (`nav2_params.yaml`) were tuned to adjust the quadruped's costmap inflation radius and path-planning behavior around industrial machinery.
+
+![ROS TF Tree Architecture](docs/tf_tree.png)
+
+*The system's Transform (TF) tree adheres to ROS REP-105 standards, accurately broadcasting the transformations from the global `map` frame down to the edge sensor (`utlidar_lidar`).*
+
+
+
 ## 🦾 Future Work: Mobile Manipulation
 
 The next phase involves integrating a **101 Lee Robotic Arm** onto the Go2 platform. This will transform the passive inspector into an active manipulator capable of interacting with the environment (e.g., opening industrial doors, pressing buttons).
