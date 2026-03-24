@@ -76,10 +76,13 @@ To construct the high-fidelity 3D map for navigation, I implemented a hybrid SLA
 2.  **Off-Board SLAM Engine:** Raw `.bag` files are replayed on the Alienware host (running ROS 1 Noetic via Docker), feeding the Point-LIO / FAST-LIO mapping algorithm.
 
 ---
-
 ### Navigation Stack (Nav2) & TF Architecture
 
 To achieve true autonomy, the 3D point cloud data is projected into a 2D occupancy grid (`.pgm` / `.yaml`) to feed the **ROS 2 Nav2 Stack**. Custom configuration files (`nav2_params.yaml`) were tuned to adjust the quadruped's costmap inflation radius and path-planning behavior around industrial machinery.
+
+![2D Occupancy Grid Map](docs/mapa_oficial.png)
+
+*2D Costmap generated from the SLAM point cloud, ready for Nav2 global and local path planning.*
 
 ![ROS TF Tree Architecture](docs/tf_tree.png)
 
